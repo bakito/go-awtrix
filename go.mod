@@ -3,7 +3,7 @@ module github.com/bakito/go-awtrix
 go 1.23.1
 
 require (
-	github.com/go-resty/resty/v2 v2.15.3
+	github.com/go-resty/resty/v2 v2.16.0
 	github.com/onsi/ginkgo/v2 v2.21.0
 	github.com/onsi/gomega v1.35.1
 )
