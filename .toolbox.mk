@@ -15,10 +15,10 @@ TB_GOLANGCI_LINT ?= $(TB_LOCALBIN)/golangci-lint
 TB_GORELEASER ?= $(TB_LOCALBIN)/goreleaser
 
 ## Tool Versions
-TB_GINKGO_VERSION ?= v2.20.2
-TB_GO_BUILDER_GENERATOR_VERSION ?= v1.8.5
-TB_GOLANGCI_LINT_VERSION ?= v1.61.0
-TB_GORELEASER_VERSION ?= v2.3.2
+TB_GINKGO_VERSION ?= v2.23.4
+TB_GO_BUILDER_GENERATOR_VERSION ?= v1.9.3
+TB_GOLANGCI_LINT_VERSION ?= v2.1.1
+TB_GORELEASER_VERSION ?= v2.8.2
 
 ## Tool Installer
 .PHONY: tb.ginkgo
@@ -32,7 +32,7 @@ $(TB_GO_BUILDER_GENERATOR): $(TB_LOCALBIN)
 .PHONY: tb.golangci-lint
 tb.golangci-lint: $(TB_GOLANGCI_LINT) ## Download golangci-lint locally if necessary.
 $(TB_GOLANGCI_LINT): $(TB_LOCALBIN)
-	test -s $(TB_LOCALBIN)/golangci-lint || GOBIN=$(TB_LOCALBIN) go install github.com/golangci/golangci-lint/cmd/golangci-lint@$(TB_GOLANGCI_LINT_VERSION)
+	test -s $(TB_LOCALBIN)/golangci-lint || GOBIN=$(TB_LOCALBIN) go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@$(TB_GOLANGCI_LINT_VERSION)
 .PHONY: tb.goreleaser
 tb.goreleaser: $(TB_GORELEASER) ## Download goreleaser locally if necessary.
 $(TB_GORELEASER): $(TB_LOCALBIN)
@@ -53,6 +53,6 @@ tb.update: tb.reset
 	toolbox makefile -f $(TB_LOCALDIR)/Makefile \
 		github.com/onsi/ginkgo/v2/ginkgo \
 		github.com/kilianpaquier/go-builder-generator/cmd/go-builder-generator \
-		github.com/golangci/golangci-lint/cmd/golangci-lint \
+		github.com/golangci/golangci-lint/v2/cmd/golangci-lint \
 		github.com/goreleaser/goreleaser
 ## toolbox - end
