@@ -4,7 +4,7 @@ go 1.24.1
 
 require (
 	github.com/go-resty/resty/v2 v2.17.1
-	github.com/onsi/ginkgo/v2 v2.27.4
+	github.com/onsi/ginkgo/v2 v2.27.5
 	github.com/onsi/gomega v1.39.0
 )
 
